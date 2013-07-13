@@ -116,7 +116,7 @@ body {
 	height: 128px;
 	width: 192px;
 	position: relative;
-	background: gray;
+	background: #bbb;
 }
 .pegs-game noscript {
 	display: block;
