@@ -6,8 +6,9 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title>Pegs, ported from TI-83+ by Rory O’Kane</title>
-		<meta name="description" content="">
+		<title>Pegs puzzle game, ported from TI-83+</title>
+		<meta name="description" content="The game Pegs for the TI-83+ graphing calculator, ported to the browser.">
+		<meta name="author" content="Rory O’Kane">
 		<meta name="viewport" content="width=device-width">
 		
 		<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -22,35 +23,50 @@
 		<![endif]-->
 		
 		<div id="container">
-			<h1>Pegs</h1>
-			<h2>ported by Rory O’Kane</h2>
+			<header>
+				<hgroup>
+					<h1>Pegs</h1>
+					<h2>ported by Rory O’Kane</h2>
+				</hgroup>
+			</header>
+
+			<section>
+				<header>
+					<h1>Instructions</h1>
+				</header>
+			</section>
 			
-			<div class="pegs-game">
-				<div class="screen title-screen">
-					<img class="screen-image" src="images/screens/pegs-title.gif" alt="PEGS: A GAME OF OBJECT ELIMINATION… By Fred Coughlin. Play, Help, Exit." />
-					<div class="menu-buttons">
-						<img class="menu-button play-button" src="images/menu-buttons/play.gif" alt="Play" />
-						<img class="menu-button help-button" src="images/menu-buttons/help.gif" alt="Help" />
-						<img class="menu-button exit-button" src="images/menu-buttons/exit.gif" alt="Exit" />
+			<section>
+				<header>
+					<h1>Play</h1>
+				</header>
+				<div class="pegs-game">
+					<div class="screen title-screen">
+						<img class="screen-image" src="images/screens/pegs-title.gif" alt="PEGS: A GAME OF OBJECT ELIMINATION… By Fred Coughlin. Play, Help, Exit." />
+						<div class="menu-buttons">
+							<img class="menu-button play-button" src="images/menu-buttons/play.gif" alt="Play" />
+							<img class="menu-button help-button" src="images/menu-buttons/help.gif" alt="Help" />
+							<img class="menu-button exit-button" src="images/menu-buttons/exit.gif" alt="Exit" />
+						</div>
+					</div>
+					<div class="screen help-screen">
+						<img class="screen-image" src="images/screens/help-screen.gif" alt="To beat each level you must destroy all of the pegs. If two like pegs are pushed into each other they disappear, except for triangles which form a solid block and plusses which allow you to choose a replacement block." />
+					</div>
+					<div class="screen level-screen">
+						<div class="level-grid">
+							<!-- will generate in code -->
+						</div>
+						<div class="messages">
+							<img class="message dont-match-message" src="images/messages/dont-match.gif" alt="They don't match." />
+							<img class="message you-fell-message" src="images/messages/you-fell.gif" alt="You fell and died." />
+							<img class="message beat-level-message" src="images/messages/beat-level.gif" alt="Nice Pegging!!!" />
+						</div>
+					</div>
+					<div class="screen finished-screen">
+						<img class="screen-image" src="images/screens/finished-pegs.gif" alt="CONGRATULATIONS! YOU FINISHED PEGS! YOU CAN NOW PRESS (+) AND (-) TO GOTO ANY OF THE LEVELS." />
 					</div>
 				</div>
-				<div class="screen help-screen">
-					<img class="screen-image" src="images/screens/help-screen.gif" alt="To beat each level you must destroy all of the pegs. If two like pegs are pushed into each other they disappear, except for triangles which form a solid block and plusses which allow you to choose a replacement block." />
-				</div>
-				<div class="screen level-screen">
-					<div class="level-grid">
-						<!-- will generate in code -->
-					</div>
-					<div class="messages">
-						<img class="message" src="images/messages/dont-match.gif" alt="They don't match." />
-						<img class="message" src="images/messages/you-fell.gif" alt="You fell and died." />
-						<img class="message" src="images/messages/beat-level.gif" alt="Nice Pegging!!!" />
-					</div>
-				</div>
-				<div class="screen finished-screen">
-					<img class="screen-image" src="images/screens/finished-pegs.gif" alt="CONGRATULATIONS! YOU FINISHED PEGS! YOU CAN NOW PRESS (+) AND (-) TO GOTO ANY OF THE LEVELS." />
-				</div>
-			</div>
+			</section>
 		</div>
 		
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
