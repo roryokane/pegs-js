@@ -116,6 +116,14 @@ body {
 	height: 128px;
 	width: 192px;
 	position: relative;
+	background: gray;
+}
+.pegs-game noscript {
+	display: block;
+	padding: 1em;
+}
+.pegs-game .screen {
+	display: none;
 }
 
 
