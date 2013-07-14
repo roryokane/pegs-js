@@ -58,13 +58,13 @@ jQuery ($) ->
 	
 	# game state
 	
-	currentScreen = screens.title
+	currentScreen = undefined
 	
 	
 	# more functions
 	
 	changeScreen = (screen) ->
-		currentScreen.exitHandler?()
+		currentScreen?.exitHandler?()
 		
 		showScreen(screen)
 		currentScreen = screen
@@ -132,4 +132,4 @@ jQuery ($) ->
 	
 	# start the game
 	
-	changeScreen(currentScreen)
+	changeScreen(screens.title)
