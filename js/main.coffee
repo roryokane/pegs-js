@@ -2,14 +2,14 @@ jQuery ($) ->
 	# game data
 	
 	tiles =
-		blank: {filename: "blank.gif", alt: "blank", char: " "}
-		circle: {filename: "circle.gif", alt: "circle", char: "o"}
-		cross: {filename: "cross.gif", alt: "cross", char: "+"}
-		hole: {filename: "hole.gif", alt: "hole", char: "#"}
-		player: {filename: "player.gif", alt: "player", char: "P"}
-		solidBlock: {filename: "solid-block.gif", alt: "solid block", char: "X"}
-		square: {filename: "square.gif", alt: "square", char: "s"}
-		triangle: {filename: "triangle.gif", alt: "triangle", char: "^"}
+		blank: {filename: "blank.gif", alt: "blank", chars: [" "]}
+		circle: {filename: "circle.gif", alt: "circle", chars: ["o", "○"]}
+		cross: {filename: "cross.gif", alt: "cross", chars: ["+", "✚"]}
+		hole: {filename: "hole.gif", alt: "hole", chars: ["#", "■"]}
+		player: {filename: "player.gif", alt: "player", chars: ["P", "✠"]}
+		solidBlock: {filename: "solid-block.gif", alt: "solid block", chars: ["X", "⛝"]}
+		square: {filename: "square.gif", alt: "square", chars: ["s", "□"]}
+		triangle: {filename: "triangle.gif", alt: "triangle", chars: ["<", "◺"]}
 	screens =
 		allSelector: '.screen'
 		title: {selector: ".title-screen"}
