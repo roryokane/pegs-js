@@ -27,6 +27,8 @@ jQuery ($) ->
 		help: {selector: ".you-fell-message"}
 		level: {selector: ".beat-level-message"}
 	
+	screens.title.buttonsInOrder = [menuButtons.play, menuButtons.help, menuButtons.exit]
+	
 	
 	# some functions
 	
@@ -43,6 +45,7 @@ jQuery ($) ->
 		selectInGame(scopeSelector).hide()
 		oneToShow.show()
 	
+	# display functions. These do not run events, only change the visuals.
 	showScreen = (screen) ->
 		hideAllButOne(screens.allSelector, screen.element)
 	showMenuButton = (menuButton) ->
@@ -52,13 +55,10 @@ jQuery ($) ->
 	hideMessages = () ->
 		selectInGame(messages.allSelector).hide()
 	
-	# attach input handlers
-	
 	
 	# game state
 	
 	currentScreen = screens.title
-	screens.title.selected = menuButtons.play
 	
 	
 	# more functions
@@ -71,23 +71,35 @@ jQuery ($) ->
 		
 		currentScreen.enterHandler?()
 	
+	changeMenuButton = (button) ->
+		showMenuButton(button)
+		screens.title.selectedButton = button
+	
+	# initialize handlers as blank
 	_(screens).each (screen) ->
 		screen.inputHandlers = {}
 		screen.enterHandler = ->
 		screen.exitHandler = ->
 	
-	addTitleHandlers = (title) ->
-		screens.title.inputHandlers.left = ->
+	addTitleScreenHandlers = (title) ->
+		moveButtonSelection = (direction) ->
+			numButtons = currentScreen.buttonsInOrder.length
+			currentButtonIndex = _(currentScreen.buttonsInOrder).indexOf(currentScreen.selectedButton)
+			newIndex = (currentButtonIndex + direction) % numButtons
+			currentScreen.selectedButton = currentScreen.buttonsInOrder[newIndex]
+		
+		title.inputHandlers.left = ->
+			moveButtonSelection(-1)
+		title.inputHandlers.right = ->
+			moveButtonSelection(1)
+		title.inputHandlers.confirm = ->
 			return
-		screens.title.inputHandlers.right = ->
+		title.inputHandlers.exit = ->
 			return
-		screens.title.inputHandlers.confirm = ->
-			return
-		screens.title.inputHandlers.exit = ->
-			return
-		screens.title.enterHandler = ->
+		title.enterHandler = ->
+			title.selectedButton = menuButtons.play
 			showMenuButton(menuButtons.play)
-	addTitleHandlers(screens.title)
+	addTitleScreenHandlers(screens.title)
 	
 	# register input handlers
 	keys =
@@ -99,13 +111,28 @@ jQuery ($) ->
 		exit: ['esc']
 		nextLevel: ['+']
 		previousLevel: ['-']
+	# will need to convert the above strings in to numeric key codes
+	
+	registeredInputHandlers = {}
+	
+	$(window).on 'keypress', (event) ->
+		whichKey = event.which
+		console.log("noticed keypress of", whichKey)
+		if whichKey in registeredInputHandlers
+			$(event).preventDefault()
+			console.log("caught keypress of", whichKey, "and running", registeredInputHandlers[whichKey])
+			registeredInputHandlers[whichKey]()
 	
 	registerKey = (control, handler) ->
-		return
+		registeredInputHandlers[control] = handler
+	
 	_(keys).each (controls, eventName) ->
 		_(controls).each (control) ->
-			registerKey control, () ->
+			runInputHandlerIfExists = () ->
+				console.log("about to try running event", eventName, "from", currentScreen.inputHandlers)
 				currentScreen.inputHandlers?[eventName]?()
+			registerKey control, runInputHandlerIfExists
+	console.log(registeredInputHandlers)
 	
 	
 	# start the game
