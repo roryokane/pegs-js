@@ -115,6 +115,7 @@ jQuery ($) ->
 		left: ['left']
 		right: ['right']
 		confirm: ['enter', 'space']
+		reset: ['r']
 		exit: ['esc']
 		nextLevel: ['plus']
 		previousLevel: ['minus']
