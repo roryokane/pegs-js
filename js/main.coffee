@@ -85,10 +85,11 @@ jQuery ($) ->
 		moveButtonSelection = (direction) ->
 			numButtons = currentScreen.buttonsInOrder.length
 			currentButtonIndex = _(currentScreen.buttonsInOrder).indexOf(currentScreen.selectedButton)
-			newIndex = (currentButtonIndex + direction) % numButtons
-			currentScreen.selectedButton = currentScreen.buttonsInOrder[newIndex]
+			newIndex = ((currentButtonIndex + direction) + numButtons) % numButtons
+			changeMenuButton(currentScreen.buttonsInOrder[newIndex])
 		
 		title.inputHandlers.left = ->
+			console.log("running title.inputHandlers.left")
 			moveButtonSelection(-1)
 		title.inputHandlers.right = ->
 			moveButtonSelection(1)
@@ -102,6 +103,7 @@ jQuery ($) ->
 	addTitleScreenHandlers(screens.title)
 	
 	# register input handlers
+	
 	keys =
 		up: ['up']
 		down: ['down']
@@ -109,30 +111,17 @@ jQuery ($) ->
 		right: ['right']
 		confirm: ['enter', 'space']
 		exit: ['esc']
-		nextLevel: ['+']
-		previousLevel: ['-']
-	# will need to convert the above strings in to numeric key codes
-	
-	registeredInputHandlers = {}
-	
-	$(window).on 'keypress', (event) ->
-		whichKey = event.which
-		console.log("noticed keypress of", whichKey)
-		if whichKey in registeredInputHandlers
-			$(event).preventDefault()
-			console.log("caught keypress of", whichKey, "and running", registeredInputHandlers[whichKey])
-			registeredInputHandlers[whichKey]()
+		nextLevel: ['plus']
+		previousLevel: ['minus']
 	
 	registerKey = (control, handler) ->
-		registeredInputHandlers[control] = handler
+		keymage(control, handler, {preventDefault: true})
 	
 	_(keys).each (controls, eventName) ->
 		_(controls).each (control) ->
-			runInputHandlerIfExists = () ->
-				console.log("about to try running event", eventName, "from", currentScreen.inputHandlers)
-				currentScreen.inputHandlers?[eventName]?()
+			runInputHandlerIfExists = (event) ->
+				currentScreen.inputHandlers?[eventName]?(event)
 			registerKey control, runInputHandlerIfExists
-	console.log(registeredInputHandlers)
 	
 	
 	# start the game
