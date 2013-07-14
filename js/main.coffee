@@ -99,7 +99,13 @@ jQuery ($) ->
 		title.inputHandlers.right = ->
 			moveButtonSelection(1)
 		title.inputHandlers.confirm = ->
-			return
+			switch currentScreen.selectedButton
+				when menuButtons.play
+					changeScreen(screens.level)
+				when menuButtons.help
+					changeScreen(screens.help)
+				when menuButtons.exit
+					return
 		title.inputHandlers.exit = ->
 			return
 		title.enterHandler = ->
