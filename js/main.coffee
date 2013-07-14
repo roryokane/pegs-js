@@ -81,15 +81,20 @@ jQuery ($) ->
 		screen.enterHandler = ->
 		screen.exitHandler = ->
 	
+	constrainToRange = (value, min, max) ->
+		return switch
+			when value < min then min
+			when value > max then max
+			else value
+	
 	addTitleScreenHandlers = (title) ->
 		moveButtonSelection = (direction) ->
 			numButtons = currentScreen.buttonsInOrder.length
-			currentButtonIndex = _(currentScreen.buttonsInOrder).indexOf(currentScreen.selectedButton)
-			newIndex = ((currentButtonIndex + direction) + numButtons) % numButtons
+			currentIndex = _(currentScreen.buttonsInOrder).indexOf(currentScreen.selectedButton)
+			newIndex = constrainToRange(currentIndex + direction, 0, (numButtons - 1))
 			changeMenuButton(currentScreen.buttonsInOrder[newIndex])
 		
 		title.inputHandlers.left = ->
-			console.log("running title.inputHandlers.left")
 			moveButtonSelection(-1)
 		title.inputHandlers.right = ->
 			moveButtonSelection(1)
