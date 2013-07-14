@@ -130,6 +130,8 @@ body {
 .menu-button {
 	position: absolute;
 	z-index: 1;
+	/* TODO change positions to more exact percentages of game-native pixel values
+	 * the game is natively 96x64 */
 	bottom: 3%;
 }
 
