@@ -130,19 +130,19 @@ body {
 .menu-button {
 	position: absolute;
 	z-index: 1;
-	/* TODO change positions to more exact percentages of game-native pixel values
-	 * the game is natively 96x64 */
-	bottom: 3%;
+	/* positions are fractions of game-native pixel values –
+     * 96 pixels wide and 64 pixels tall */
+	bottom: 3.125%;
 }
 
 .play-button {
-	left: 41.5%;
+	left: 41.6666667%;
 }
 .help-button {
-	left: 61.5%;
+	left: 61.45833333%;
 }
 .exit-button {
-	left: 81%;
+	left: 81.25%;
 }
 
 
