@@ -2,7 +2,7 @@ jQuery ($) ->
 	# game data
 	
 	tiles =
-		blank: {filename: "blank.gif", alt: "blank", chars: [" "]}
+		blank: {filename: "blank.gif", alt: "blank", chars: [" ", ".", "·"]}
 		circle: {filename: "circle.gif", alt: "circle", chars: ["o", "○"]}
 		cross: {filename: "cross.gif", alt: "cross", chars: ["+", "✚"]}
 		hole: {filename: "hole.gif", alt: "hole", chars: ["#", "■"]}
@@ -34,7 +34,7 @@ jQuery ($) ->
 		scaleFactor: 2
 	
 	screens.title.buttonsInOrder = [menuButtons.play, menuButtons.help, menuButtons.exit]
-	screens.help.cropSelector = '.crop-area'
+	screens.help.cropSelector = screens.help.selector + ' ' + '.crop-area'
 	screens.help.drawData =
 		startY: 8 # in native resolution pixels
 		stepY: 7
