@@ -146,6 +146,24 @@ body {
 }
 
 
+.crop-area {
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+.blank-background {
+	background: white;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+
 .message {
 	position: absolute;
 	z-index: 1;

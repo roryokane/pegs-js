@@ -27,7 +27,19 @@ jQuery ($) ->
 		help: {selector: ".you-fell-message"}
 		level: {selector: ".beat-level-message"}
 	
+	displayData =
+		nativeResolution:
+			width: 96
+			height: 64
+		scaleFactor: 2
+	
 	screens.title.buttonsInOrder = [menuButtons.play, menuButtons.help, menuButtons.exit]
+	screens.help.cropSelector = '.crop-area'
+	screens.help.drawData =
+		startY: 8 # in native resolution pixels
+		stepY: 7
+		endY: 64
+		secsBetweenDraws: 0.05
 	
 	
 	# some functions
@@ -54,6 +66,9 @@ jQuery ($) ->
 		hideAllButOne(messages.allSelector, message.element)
 	hideMessages = () ->
 		selectInGame(messages.allSelector).hide()
+	
+	nativePixelsToDisplayPixels = (nativePixels) ->
+		nativePixels * displayData.scaleFactor
 	
 	
 	# game state
@@ -112,6 +127,56 @@ jQuery ($) ->
 			title.selectedButton = menuButtons.play
 			showMenuButton(menuButtons.play)
 	addTitleScreenHandlers(screens.title)
+	
+	addHelpScreenHandlers = (help) ->
+		returnToMenuOnInput = ->
+			if ! currentScreen.drawing
+				changeScreen(screens.title)
+		
+		setCropHeight = (heightInNativePixels) ->
+			actualHeight = nativePixelsToDisplayPixels(heightInNativePixels)
+			cropArea = $(help.cropSelector)
+			cropArea.height(actualHeight)
+		
+		initializeDrawing = ->
+			currentScreen.drawing = true
+			currentScreen.currentCropY = help.drawData.startY
+			setCropHeight(currentScreen.currentCropY)
+			setTimeout drawNextLine, currentScreen.drawData.secsBetweenDraws*1000
+		
+		drawNextLine = ->
+			currentScreen.currentCropY += help.drawData.stepY
+			setCropHeight(currentScreen.currentCropY)
+			
+			finished = currentScreen.currentCropY >= help.drawData.endY
+			if finished
+				currentScreen.drawing = false
+			else
+				setTimeout drawNextLine, currentScreen.drawData.secsBetweenDraws*1000
+		
+		help.inputHandlers.confirm = ->
+			returnToMenuOnInput()
+		help.inputHandlers.exit = ->
+			returnToMenuOnInput()
+		help.enterHandler = ->
+			initializeDrawing()
+	addHelpScreenHandlers(screens.help)
+	
+	addLevelScreenHandlers = (level) ->
+		inputHandlers = {normal: {}, messageShowing: {}}
+		
+		level.inputHandlers.confirm = ->
+			return
+		level.inputHandlers.exit = ->
+			changeScreen(screens.title)
+		level.enterHandler = ->
+			return
+		level.exitHandler = ->
+			# save the current level, if the player hasn’t moved on it yet
+			# does it save the level if the player returns to the
+			#  title screen, as opposed to refreshing the page?
+			return
+	addLevelScreenHandlers(screens.level)
 	
 	# register input handlers
 	
