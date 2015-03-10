@@ -27,6 +27,20 @@ jQuery ($) ->
 		help: {selector: ".you-fell-message"}
 		level: {selector: ".beat-level-message"}
 	
+	levels = [
+		[
+			['X','X','X','X','X','X','X','X','X','X','X','X']
+			['X',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','X']
+			['X',' ',' ',' ','✠',' ',' ','○',' ',' ',' ','X']
+			['X',' ',' ',' ',' ','+','+','◺',' ',' ',' ','X']
+			['X',' ',' ',' ','□','■',' ','○',' ',' ',' ','X']
+			['X',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','X']
+			['X',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ','X']
+			['X','X','X','X','X','X','X','X','X','X','X','X']
+			[2, 4] # TODO auto-detect player location
+		]
+	]
+	
 	displayData =
 		nativeResolution:
 			width: 96
