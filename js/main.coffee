@@ -21,6 +21,8 @@ jQuery ($) ->
 		play: {selector: ".play-button"}
 		help: {selector: ".help-button"}
 		exit: {selector: ".exit-button"}
+	levelGrid =
+		selector: '.level-grid'
 	messages =
 		allSelector: '.message'
 		title: {selector: ".dont-match-message"}
