@@ -1,3 +1,7 @@
+# jQuery is included in the page HTML
+_ = require('underscore')
+keymage = require('keymage')
+
 jQuery ($) ->
 	# game data
 	
