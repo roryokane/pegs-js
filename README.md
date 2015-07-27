@@ -1,6 +1,6 @@
 # Pegs
 
-The game Pegs for the TI-83+ graphing calculator, ported to the browser. I’m still working on this port, but you can [play what I have so far](http://roryokane.github.io/pegs-js) on GitHub.
+The game Pegs for the TI-83+ graphing calculator, ported to the browser. I’m still working on this port, but you can [play what I have so far](https://roryokane.github.io/pegs-js/) on GitHub.
 
 [The original Pegs](http://www.detachedsolutions.com/puzzpack/pegs.php) was part of PuzzPack by Detached Solutions, and its main developer was Fred Coughlin. This port is by [Rory O’Kane](http://roryokane.com/).
 
