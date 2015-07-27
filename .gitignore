@@ -1,1 +1,12 @@
+# Dependency directory
+# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+node_modules
+
+# temporary build files
+tmp
+
+# Broccoli build output when I am debugging it with `broccoli build dist`
+dist
+
+# a folder alias
 original Pegs Flash port

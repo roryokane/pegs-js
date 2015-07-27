@@ -1,5 +1,14 @@
-.PHONY: server
-server:
-	# use the npm module http-server
-	# if you don't have it, get it with `npm install -g http-server`
-	http-server
+.PHONY: serve
+serve: node_modules
+	npm start
+
+.PHONY: build
+build: node_modules
+	broccoli build dist
+
+.PHONY: clean
+clean:
+	rm -rf dist
+
+node_modules:
+	npm install

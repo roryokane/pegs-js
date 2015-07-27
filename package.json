@@ -1,0 +1,19 @@
+{
+  "name": "pegs-js",
+  "version": "0.0.0",
+  "private": true,
+  "description": "The game Pegs for the TI-83+ graphing calculator, ported to the browser.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "broccoli serve"
+  },
+  "author": "Rory O’Kane",
+  "devDependencies": {
+    "broccoli": "^0.16.4",
+    "broccoli-fast-browserify": "^0.2.7",
+    "broccoli-merge-trees": "^0.2.2",
+    "broccoli-sass": "^0.6.6",
+    "broccoli-static-compiler": "^0.2.1",
+    "coffeeify": "^1.1.0"
+  }
+}
