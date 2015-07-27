@@ -208,9 +208,9 @@ jQuery ($) ->
 		keymage(control, handler, {preventDefault: true})
 	
 	_(keys).each (controls, eventName) ->
+		runInputHandlerIfExists = (event) ->
+			currentScreen.inputHandlers?[eventName]?(event)
 		_(controls).each (control) ->
-			runInputHandlerIfExists = (event) ->
-				currentScreen.inputHandlers?[eventName]?(event)
 			registerKey control, runInputHandlerIfExists
 	
 	
