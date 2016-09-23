@@ -8,7 +8,7 @@ I already wrote a complete port of pegs to Adobe Flash in 2006, but it is no lon
 
 ## Building
 
-Building this project requires requires [NPM](https://www.npmjs.com/).
+Building this project requires [NPM](https://www.npmjs.com/).
 
 * Run `make serve` to start a development server that automatically compiles files
 * Run `make build` to generate a `dist` folder containing the compiled site
