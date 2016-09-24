@@ -1,5 +1,5 @@
 # jQuery is included in the page HTML
-_ = require('underscore')
+_ = require('lodash')
 keymage = require('keymage')
 
 jQuery ($) ->
