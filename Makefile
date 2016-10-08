@@ -10,5 +10,9 @@ build: node_modules
 clean:
 	rm -rf dist
 
+.PHONY: test
+test: node_modules
+	npm test
+
 node_modules:
 	npm install
