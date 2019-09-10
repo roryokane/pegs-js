@@ -18,7 +18,6 @@
     "sass": "^1.23.0-module.beta.1"
   },
   "dependencies": {
-    "immutable": "^3.7.6",
     "jquery": "^3.4.1",
     "keymage": "^1.1.3",
     "lodash": "^4.7.0"

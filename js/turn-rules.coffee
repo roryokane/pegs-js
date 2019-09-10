@@ -1,7 +1,5 @@
-Immutable = require('immutable')
-
 gameStateAfterInput = (gameState, input) ->
-	nextState = gameState.setIn() # TODO
+	nextState = undefined # TODO make a changed copy of gameState
 	# gameState.levelTiles
 	# gameState.playerCoords
 	# gameState.currentMessage
