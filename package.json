@@ -6,14 +6,14 @@
   "scripts": {
     "start": "parcel index.html",
     "build-production": "parcel build index.html --public-url './'",
-    "test": "mocha --compilers coffee:coffee-script/register js/test/*",
-    "test-watch": "mocha --compilers coffee:coffee-script/register --watch --watch-extensions coffee --reporter min js/test/*"
+    "test": "mocha --require coffeescript/register js/test/*",
+    "test-watch": "mocha --require coffeescript/register --watch --watch-extensions coffee --reporter min js/test/*"
   },
   "author": "Rory O’Kane",
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^4.2.0",
     "coffeescript": "^2.4.1",
-    "mocha": "^2.4.5",
+    "mocha": "^6.2.0",
     "parcel-bundler": "^1.12.3",
     "sass": "^1.23.0-module.beta.1"
   },
