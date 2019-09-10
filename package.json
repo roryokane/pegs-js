@@ -4,8 +4,8 @@
   "private": true,
   "description": "The game Pegs for the TI-83+ graphing calculator, ported to the browser.",
   "scripts": {
-    "start": "parcel public/index.html",
-    "build-production": "parcel build public/index.html",
+    "start": "parcel index.html",
+    "build-production": "parcel build index.html",
     "test": "mocha --compilers coffee:coffee-script/register js/test/*",
     "test-watch": "mocha --compilers coffee:coffee-script/register --watch --watch-extensions coffee --reporter min js/test/*"
   },
