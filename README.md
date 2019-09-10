@@ -8,6 +8,8 @@ The game Pegs for the TI-83+ graphing calculator, ported to the browser. I’m s
 
 I already wrote a complete port of pegs to Adobe Flash in 2006, but it is no longer published anywhere (it was on GeoCities). Now I’m porting that port to HTML, CSS, and JavaScript. I already have all image assets the game needs (which I reproduced by hand, pixel-by-pixel), and ActionScript 2 code that reproduces all behavior of the original game. However, the old code needs refactoring – it uses too many comments and not enough constants and functions.
 
+See also [Pegs in PuzzleScript](https://github.com/roryokane/pegs-in-puzzlescript), my completed port of Pegs to the PuzzleScript engine, which runs in the browser. That version has original graphics and sound; this version tries to reproduce the graphics and features of Pegs exactly as they were on the graphing calculator.
+
 ## Building
 
 Building this project requires [NPM](https://www.npmjs.com/).
