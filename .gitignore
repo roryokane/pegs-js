@@ -8,5 +8,7 @@ node_modules
 # production build output
 dist
 
-# a folder alias
+# private developer documentation
+doc
+plan of next steps for Pegs game in JavaScript.txt
 original Pegs Flash port
