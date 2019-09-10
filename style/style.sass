@@ -13,11 +13,18 @@ body
   min-width: 200px // enough space to fit the game
 
 
+@mixin image-rendering-crisp-edges
+  // prefixed according to notes on https://caniuse.com/#feat=css-crisp-edges
+  -ms-interpolation-mode: nearest-neighbor
+  image-rendering: pixelated
+  image-rendering: crisp-edges
+
 .pegs-game
   height: 128px
   width: 192px
   position: relative
   background: #bbb
+  @include image-rendering-crisp-edges
 
 .pegs-game noscript
   display: block
