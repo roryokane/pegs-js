@@ -17,4 +17,5 @@ Building this project requires [NPM](https://www.npmjs.com/).
 
 ## Testing
 
-Run `make test` to run the tests.
+* Run `make test` to run the tests.
+* Run `make test-watch` to run the tests once at first, and then again every time a code file changes.

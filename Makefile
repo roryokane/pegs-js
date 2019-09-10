@@ -14,5 +14,9 @@ clean:
 test: node_modules
 	npm test
 
+.PHONY: test-watch
+test-watch: node_modules
+	npm run test-watch
+
 node_modules:
 	npm install
