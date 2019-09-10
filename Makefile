@@ -6,6 +6,12 @@ serve: node_modules
 build: node_modules
 	yarn run build-production
 
+dist: build
+
+.PHONY: deploy
+deploy: dist
+	./deploy.sh
+
 .PHONY: clean
 clean:
 	rm -rf dist
