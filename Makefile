@@ -1,10 +1,10 @@
 .PHONY: serve
 serve: node_modules
-	npm start
+	yarn start
 
 .PHONY: build
 build: node_modules
-	broccoli build dist
+	yarn run build-production
 
 .PHONY: clean
 clean:
@@ -12,11 +12,11 @@ clean:
 
 .PHONY: test
 test: node_modules
-	npm test
+	yarn test
 
 .PHONY: test-watch
 test-watch: node_modules
-	npm run test-watch
+	yarn run test-watch
 
 node_modules:
-	npm install
+	yarn install

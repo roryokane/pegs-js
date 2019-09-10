@@ -1,4 +1,4 @@
-# jQuery is included in the page HTML
+jQuery = require('jquery')
 _ = require('lodash')
 keymage = require('keymage')
 

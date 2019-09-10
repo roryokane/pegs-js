@@ -3,9 +3,9 @@
 node_modules
 
 # temporary build files
-tmp
+.cache
 
-# Broccoli build output when I am debugging it with `broccoli build dist`
+# production build output
 dist
 
 # a folder alias

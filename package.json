@@ -4,23 +4,22 @@
   "private": true,
   "description": "The game Pegs for the TI-83+ graphing calculator, ported to the browser.",
   "scripts": {
+    "start": "parcel public/index.html",
+    "build-production": "parcel build public/index.html",
     "test": "mocha --compilers coffee:coffee-script/register js/test/*",
-    "test-watch": "mocha --compilers coffee:coffee-script/register --watch --watch-extensions coffee --reporter min js/test/*",
-    "start": "broccoli serve"
+    "test-watch": "mocha --compilers coffee:coffee-script/register --watch --watch-extensions coffee --reporter min js/test/*"
   },
   "author": "Rory O’Kane",
   "devDependencies": {
-    "broccoli": "^0.16.9",
-    "broccoli-fast-browserify": "^0.2.11",
-    "broccoli-merge-trees": "^1.1.1",
-    "broccoli-sass": "^0.7.0",
-    "broccoli-static-compiler": "^0.2.2",
     "chai": "^3.5.0",
-    "coffeeify": "^2.0.1",
-    "mocha": "^2.4.5"
+    "coffeescript": "^2.4.1",
+    "mocha": "^2.4.5",
+    "parcel-bundler": "^1.12.3",
+    "sass": "^1.23.0-module.beta.1"
   },
   "dependencies": {
     "immutable": "^3.7.6",
+    "jquery": "^3.4.1",
     "keymage": "^1.1.3",
     "lodash": "^4.7.0"
   }
