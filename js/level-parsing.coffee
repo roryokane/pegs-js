@@ -12,6 +12,7 @@ exports.TileTypes = TileTypes =
 		Triangle: 8
 
 # TODO fill in all chars
+# I will probably do that by moving some or all of the data in the currently-unused `tiles` variable in `main.coffee`
 tileChars =
 	'P': TileTypes.Player
 	'X': TileTypes.SolidBlock
